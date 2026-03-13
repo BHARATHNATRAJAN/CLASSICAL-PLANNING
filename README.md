@@ -1,18 +1,9 @@
 # ExpNo:10 Implementation of Classical Planning Algorithm
 
-<HR>
+### Name :N.BHARATH
+### Reg. No : 212223230030
 
-#### NAME : N.BHARATH
-
-#### REGISTER NUMBER : 212223230030
-
-<HR>
-
-## AIM
-
-To implement a Classical Planning Algorithm that determines a sequence of actions to transform an initial state into a goal state using defined preconditions and effects of actions. The algorithm explores possible states and generates a valid plan that satisfies the goal conditions.
-
-# Algorithm :
+## Algorithm or Steps Involved:
 <ol>
   <li>Define the initial state</li>
   <li>Define the goal state</li>
@@ -21,7 +12,7 @@ To implement a Classical Planning Algorithm that determines a sequence of action
   <li>Print the plan</li>
 </ol>
 
-# Example - 1
+## Example - 1
 ```
 initial_state = {'A': 'Table', 'B': 'Table'}
 goal_state = {'A': 'B', 'B': 'Table'}
@@ -34,11 +25,11 @@ actions = {
 plan = find_plan(initial_state, goal_state, actions)
 print(plan)
 ```
-# Output:
+## Output:
 ```
 ['move_A_to_B']
 ```
-# Example - 2
+## Example - 2
 ```
 initial_state = {'A': 'Table', 'B': 'Table', 'C': 'Table'}
 goal_state = {'A': 'B', 'B': 'C', 'C': 'Table'}
@@ -52,33 +43,21 @@ actions = {
 plan = find_plan(initial_state, goal_state, actions)
 print(plan)
 ```
-# Output:
+## Output:
 ```
 ['move_A_to_B', 'move_B_to_C']
 ```
 
-# Please Prepare Solution or Definition For the method find_plan(initial_state, goal_state, actions)
-<h3>You Can use any of the searching Strategies for planning and executing a sequence of actions.<br> You can also look in to the Code given in the Repository.</h3>
+## Program
 
-<hr>
-
-<h1> Program </h1>
-
-```py
-
+```python
 def is_goal_state(current_state, goal_state):
     return current_state == goal_state
-
 
 def apply_action(current_state, action_effect):
     new_state = current_state.copy()
     new_state.update(action_effect)
     return new_state
-
-
-def is_applicable(current_state, precondition):
-    return all(current_state.get(key) == value for key, value in precondition.items())
-
 
 def find_plan(initial_state, goal_state, actions):
     queue = [(initial_state, [])]
@@ -102,11 +81,9 @@ def find_plan(initial_state, goal_state, actions):
 
     print("No plan exists.")
     return None
-
-
-# Example 1
-print("Example 1")
-
+def is_applicable(current_state, precondition):
+    return all(current_state.get(key) == value for key, value in precondition.items())
+# Example
 initial_state = {'A': 'Table', 'B': 'Table'}
 goal_state = {'A': 'B', 'B': 'Table'}
 
@@ -116,11 +93,7 @@ actions = {
 }
 
 plan = find_plan(initial_state, goal_state, actions)
-print("Output:", plan)
-
-
-# Example 2
-print("\nExample 2")
+print(plan)
 
 initial_state = {'A': 'Table', 'B': 'Table', 'C': 'Table'}
 goal_state = {'A': 'B', 'B': 'C', 'C': 'Table'}
@@ -132,16 +105,21 @@ actions = {
 }
 
 plan = find_plan(initial_state, goal_state, actions)
-print("Output:", plan)
+print(plan)
+
+initial_state = {'A': 'Table', 'B': 'Table'}
+goal_state = {'A': 'Table', 'B': 'Table'}
+
+actions = {
+    'move_A_to_B': {'precondition': {'A': 'Table', 'B': 'Table'}, 'effect': {'A': 'B'}}
+}
+
+plan = find_plan(initial_state, goal_state, actions)
+print(plan)
 ```
-<hr>
 
-<h1> Output </h1>
+## Output
+![image](https://github.com/user-attachments/assets/316122e3-2dbc-4733-80d7-07c04ed13650)
 
-![alt text](image.png)
-
-<hr>
-
-<h1> Result </h1>
-
-Thus, the program to implement Classical Planning Algorithm has been executed successfully.
+## Result
+Therefore, the Classical Planning Algorithm has been implemented successfully.
